@@ -1,0 +1,104 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pygalgee"
+version = "0.0.0"
+description = "Google Earth Engine charting using pyGal library"
+keywords = [
+  "skeleton",
+  "Python"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+requires-python = ">=3.8"
+dependencies = [
+  "deprecated>=1.2.14"
+]
+
+[[project.authors]]
+name = "Rodrigo Principe"
+email = "fitoprincipe82@gmail.com"
+
+[project.license]
+text = "MIT"
+
+[project.readme]
+file = "README.rst"
+content-type = "text/x-rst"
+
+[project.urls]
+Homepage = "https://github.com/fitoprincipe/pygalgee"
+
+[project.optional-dependencies]
+test = [
+  "pytest",
+  "pytest-cov",
+  "pytest-deadfixtures"
+]
+doc = [
+  "sphinx>=6.2.1",
+  "pydata-sphinx-theme",
+  "sphinx-copybutton",
+  "sphinx-design",
+  "sphinx-autoapi"
+]
+
+[tool.hatch.build.targets.wheel]
+only-include = ["pygalgee"]
+
+[tool.hatch.envs.default]
+dependencies = [
+  "pre-commit",
+  "commitizen",
+  "nox"
+]
+post-install-commands = ["pre-commit install"]
+
+[tool.commitizen]
+tag_format = "v$major.$minor.$patch$prerelease"
+update_changelog_on_bump = false
+version = "0.0.0"
+version_files = [
+    "pyproject.toml:version",
+    "pygalgee/__init__.py:__version__",
+    "docs/conf.py:release",
+    "CITATION.cff:version"
+]
+
+[tool.pytest.ini_options]
+testpaths = "tests"
+
+[tool.ruff]
+line-length = 100
+lint.ignore-init-module-imports = true
+fix = true
+lint.select = ["E", "F", "W", "I", "D", "RUF"]
+lint.ignore = [
+  "E501",  # line too long | Black take care of it
+  "D212",  # Multi-line docstring | We use D213
+]
+
+[tool.ruff.flake8-quotes]
+docstring-quotes = "double"
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.coverage.run]
+source = ["pygalgee"]
+
+[tool.mypy]
+scripts_are_modules = true
+ignore_missing_imports = true
+install_types = true
+non_interactive = true
+warn_redundant_casts = true

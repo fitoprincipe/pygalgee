@@ -1,0 +1,13 @@
+# Changes here will be overwritten by Copier
+_commit: 0.1.13
+_src_path: gh:12rambau/pypackage
+author_email: fitoprincipe82@gmail.com
+author_first_name: Rodrigo
+author_last_name: Principe
+author_orcid: 0000-0000-0000-0000
+creation_year: "2024"
+github_repo_name: pygalgee
+github_user: fitoprincipe
+project_name: pyGal GEE
+project_slug: pygalgee
+short_description: Google Earth Engine charting using pyGal library
