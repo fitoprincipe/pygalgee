@@ -7,8 +7,12 @@ name = "pygalgee"
 version = "0.0.0"
 description = "Google Earth Engine charting using pyGal library"
 keywords = [
-  "skeleton",
-  "Python"
+  "python",
+  "geospatial",
+  "remote-sensing",
+  "google-earth-engine",
+  "earthengine",
+  "charting",
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -21,11 +25,14 @@ classifiers = [
 ]
 requires-python = ">=3.8"
 dependencies = [
-  "deprecated>=1.2.14"
+  "earthengine-api>=1", # fully static implementation
+  "geetools>=1",
+  "deprecated>=1.2.14",
+  "pygal"
 ]
 
 [[project.authors]]
-name = "Rodrigo Principe"
+name = "Rodrigo E. Principe"
 email = "fitoprincipe82@gmail.com"
 
 [project.license]
@@ -42,14 +49,16 @@ Homepage = "https://github.com/fitoprincipe/pygalgee"
 test = [
   "pytest",
   "pytest-cov",
-  "pytest-deadfixtures"
+  "pytest-deadfixtures",
+  "pytest-gee>=0.3.5", # to make IC creation possible in the test suit
 ]
 doc = [
   "sphinx>=6.2.1",
   "pydata-sphinx-theme",
   "sphinx-copybutton",
   "sphinx-design",
-  "sphinx-autoapi"
+  "sphinx-autoapi",
+  "pytest-gee>=0.3.5", # to make IC creation possible in the test suit
 ]
 
 [tool.hatch.build.targets.wheel]
