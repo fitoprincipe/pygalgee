@@ -8,8 +8,8 @@ on:
   pull_request:
 
 env:
-  FORCE_COLOR: 1
-  PIP_ROOT_USER_ACTION: ignore
+  EARTHENGINE_SERVICE_ACCOUNT: ${{ secrets.EARTHENGINE_SERVICE_ACCOUNT }}
+  EARTHENGINE_PROJECT: ${{ secrets.EARTHENGINE_PROJECT }}
 
 jobs:
   lint:
